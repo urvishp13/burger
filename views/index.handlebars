@@ -6,9 +6,10 @@
       <h2>Burgers that you have not eaten.</h2>
       <ul>
         {{#each burgers}}
-          {{#if devoured}}
-            {{> burgers/burger-block eat=false}}
-          {{/if}}
+        {{!-- unless = if false --}}
+          {{#unless devoured}}
+            {{> burgers/burger-block eat=true}}
+          {{/unless}}
         {{/each}}
       </ul>
     </div>
@@ -17,10 +18,9 @@
       <h2>Burgers that you have eaten!</h2>
       <ul>
         {{#each burgers}}
-          {{!-- unless = if false --}}
-          {{#unless devoured}}
-            {{> burgers/burger-block eat=true}}
-          {{/unless}}
+          {{#if devoured}}
+            {{> burgers/burger-block eat=false}}
+          {{/if}}
         {{/each}}
       </ul>
     </div>
